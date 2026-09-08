@@ -1,0 +1,20 @@
+{
+  "name": "thinking-night-remotion-sample",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "studio": "remotion studio src/index.ts",
+    "render": "remotion render src/index.ts ThinkingNightSample out/thinking-night-sample.mp4 --codec=h264"
+  },
+  "dependencies": {
+    "@remotion/cli": "4.0.522",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "remotion": "4.0.522"
+  },
+  "devDependencies": {
+    "@types/react": "18.3.24",
+    "@types/react-dom": "18.3.7",
+    "typescript": "5.9.2"
+  }
+}
