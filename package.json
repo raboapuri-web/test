@@ -1,10 +1,10 @@
 {
-  "name": "thinking-night-remotion-sample",
+  "name": "remotion-animation-library",
   "version": "1.0.0",
   "private": true,
   "scripts": {
     "studio": "remotion studio src/index.ts",
-    "render": "remotion render src/index.ts ThinkingNightSample out/thinking-night-sample.mp4 --codec=h264"
+    "render": "remotion render src/index.ts Sandbox out/sandbox.mp4 --codec=h264"
   },
   "dependencies": {
     "@remotion/cli": "4.0.522",
