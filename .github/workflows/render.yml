@@ -7,6 +7,14 @@ on:
     paths:
       - 'src/**'
       - 'package.json'
+      - 'eslint.config.mjs'
+      - 'tsconfig.json'
+      - '.github/workflows/render.yml'
+  pull_request:
+    paths:
+      - 'src/**'
+      - 'package.json'
+      - 'eslint.config.mjs'
       - 'tsconfig.json'
       - '.github/workflows/render.yml'
 
@@ -30,13 +38,30 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Render MP4
+      - name: Lint and typecheck
+        run: npm run lint
+
+      - name: Bundle compositions
+        run: npm run build
+
+      - name: Render original MP4
         run: npm run render
+
+      - name: Render pilot MP4
+        run: npm run render:pilot
 
       - name: Upload video artifact
         uses: actions/upload-artifact@v4
         with:
           name: thinking-night-sample
           path: out/thinking-night-sample.mp4
+          if-no-files-found: error
+          retention-days: 14
+
+      - name: Upload pilot video artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: thinking-night-pilot
+          path: out/thinking-night-pilot.mp4
           if-no-files-found: error
           retention-days: 14
