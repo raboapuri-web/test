@@ -4,7 +4,10 @@
   "private": true,
   "scripts": {
     "studio": "remotion studio src/index.ts",
-    "render": "remotion render src/index.ts ThinkingNightSample out/thinking-night-sample.mp4 --codec=h264"
+    "lint": "tsc --noEmit && eslint src --max-warnings 0",
+    "build": "remotion bundle src/index.ts --out-dir out/bundle",
+    "render": "remotion render src/index.ts ThinkingNightSample out/thinking-night-sample.mp4 --codec=h264",
+    "render:pilot": "remotion render src/index.ts ThinkingNightPilot out/thinking-night-pilot.mp4 --codec=h264"
   },
   "dependencies": {
     "@remotion/cli": "4.0.522",
@@ -13,8 +16,12 @@
     "remotion": "4.0.522"
   },
   "devDependencies": {
+    "@eslint/js": "9.39.1",
     "@types/react": "18.3.24",
     "@types/react-dom": "18.3.7",
+    "eslint": "9.39.1",
+    "globals": "16.4.0",
+    "typescript-eslint": "8.44.0",
     "typescript": "5.9.2"
   }
 }
