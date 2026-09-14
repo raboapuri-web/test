@@ -1,4 +1,4 @@
-name: Render Remotion Sample
+name: Render Remotion Sandbox
 
 on:
   workflow_dispatch:
@@ -36,7 +36,7 @@ jobs:
       - name: Upload video artifact
         uses: actions/upload-artifact@v4
         with:
-          name: thinking-night-sample
-          path: out/thinking-night-sample.mp4
+          name: remotion-sandbox
+          path: out/sandbox.mp4
           if-no-files-found: error
           retention-days: 14
