@@ -1,5 +1,5 @@
 {
-  "schemaVersion": "1.1",
+  "schemaVersion": "1.2",
   "purpose": "AI-readable character template registry for Remotion scene planning and character selection.",
   "characters": [
     {
@@ -29,6 +29,34 @@
       "customizableColors": ["skin", "hair", "top", "bottom", "shirt", "shoes", "prop"],
       "sceneTypes": ["home", "tower_mansion", "office", "street", "hotel", "elevator", "walking", "back_view"],
       "narrativeUse": ["港区文学の女性登場人物", "都市生活者の日常", "友人・恋人・同僚役", "色替えによる別人化", "歩行シーン", "後ろ姿の余韻カット"]
+    },
+    {
+      "id": "boy_child_2to4_faceless",
+      "component": "BoyChildCharacter",
+      "roleTags": ["child", "boy", "toddler", "preschooler", "family_member", "background_character"],
+      "ageRange": "2_to_4",
+      "supportedAges": [2, 3, 4],
+      "style": ["faceless", "flat_vector", "cinematic", "minimal", "child_proportions"],
+      "availablePoses": ["standing", "sitting", "running"],
+      "availableDirections": ["left", "right", "front", "back"],
+      "customizableColors": ["skin", "hair", "top", "bottom", "shoes", "accent"],
+      "sceneTypes": ["family_home", "yard", "park", "wedding", "station", "street", "running", "sitting", "standing"],
+      "narrativeUse": ["2〜4歳の男の子を示す", "家族・庭・公園・結婚式などの日常シーンに使う", "年齢に応じて頭身を少し変える", "立つ・座る・走る動作を使い分ける"],
+      "previewAsset": "assets/characters/ChildCharacter_preview.svg"
+    },
+    {
+      "id": "girl_child_2to4_faceless",
+      "component": "GirlChildCharacter",
+      "roleTags": ["child", "girl", "toddler", "preschooler", "family_member", "background_character"],
+      "ageRange": "2_to_4",
+      "supportedAges": [2, 3, 4],
+      "style": ["faceless", "flat_vector", "cinematic", "minimal", "child_proportions"],
+      "availablePoses": ["standing", "sitting", "running"],
+      "availableDirections": ["left", "right", "front", "back"],
+      "customizableColors": ["skin", "hair", "top", "bottom", "shoes", "accent"],
+      "sceneTypes": ["family_home", "yard", "park", "wedding", "station", "street", "running", "sitting", "standing"],
+      "narrativeUse": ["2〜4歳の女の子を示す", "家族・庭・公園・結婚式などの日常シーンに使う", "年齢に応じて頭身を少し変える", "立つ・座る・走る動作を使い分ける"],
+      "previewAsset": "assets/characters/ChildCharacter_preview.svg"
     }
   ]
 }
