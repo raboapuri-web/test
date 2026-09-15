@@ -1,0 +1,62 @@
+name: Register Small Dog Prop
+
+on:
+  push:
+    paths:
+      - '.github/workflows/register-small-dog-prop.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  register:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Register asset in master JSON
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          path = Path('public/assets/asset-registry.json')
+          data = json.loads(path.read_text(encoding='utf-8'))
+          assets = data.setdefault('assets', [])
+          asset_id = 'prop_small_dog'
+          if not any(a.get('id') == asset_id for a in assets):
+              assets.append({
+                  'id': asset_id,
+                  'type': 'prop',
+                  'family': 'small_dog',
+                  'variant': 'brown_faceless_yorkie_like',
+                  'path': 'assets/props/PROP_small_dog.svg',
+                  'location': ['home','yard','garden','park','street','suburban_home'],
+                  'timeOfDay': ['any','day','evening'],
+                  'sceneTypes': ['pet','family_home','walk','yard','daily_life','weekend','suburban_life'],
+                  'mood': ['warm','casual','family','gentle','ordinary'],
+                  'narrativeUse': [
+                      '茶色い小型犬を生活感のある家庭シーンに置く',
+                      '庭・散歩・家族の日常を記号的に示す',
+                      '顔を描かない人物テンプレと馴染むペット小物として使う'
+                  ],
+                  'visualKeywords': ['small brown dog','faceless dog','Yorkshire terrier like','pet','small breed'],
+                  'avoidWhen': ['large guard dog','wild animal','formal office interior'],
+                  'shot': {
+                      'type': 'overlay_prop',
+                      'framing': 'small_pet',
+                      'recommendedMotion': ['static','subtleParallax','smallBounce','tailWag']
+                  }
+              })
+              path.write_text(json.dumps(data, ensure_ascii=False, separators=(',', ':')), encoding='utf-8')
+          PY
+      - name: Commit registry update
+        run: |
+          if git diff --quiet -- public/assets/asset-registry.json; then
+            echo 'Registry already up to date.'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add public/assets/asset-registry.json
+          git commit -m 'Register small dog prop'
+          git push
