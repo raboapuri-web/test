@@ -1,0 +1,267 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0%" stop-color="#7f97b1"/>
+    <stop offset="100%" stop-color="#8fd0dd"/>
+  </linearGradient>
+  <linearGradient id="wallBand" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%" stop-color="#d8dde2"/>
+    <stop offset="100%" stop-color="#f2f2f2"/>
+  </linearGradient>
+  <linearGradient id="platformTop" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%" stop-color="#e1e2e6"/>
+    <stop offset="100%" stop-color="#bfc2c9"/>
+  </linearGradient>
+  <linearGradient id="platformFront" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%" stop-color="#868391"/>
+    <stop offset="100%" stop-color="#514a56"/>
+  </linearGradient>
+  <linearGradient id="screenDark" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%" stop-color="#444153"/>
+    <stop offset="100%" stop-color="#282636"/>
+  </linearGradient>
+  <linearGradient id="trainBody" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%" stop-color="#fbfbfb"/>
+    <stop offset="100%" stop-color="#e6e6ea"/>
+  </linearGradient>
+  <linearGradient id="trainWindow" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%" stop-color="#ffe773"/>
+    <stop offset="100%" stop-color="#f5c53b"/>
+  </linearGradient>
+  <linearGradient id="glass" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%" stop-color="#b0d2dd" stop-opacity="0.9"/>
+    <stop offset="100%" stop-color="#7ca7b8" stop-opacity="0.95"/>
+  </linearGradient>
+  <linearGradient id="ad1" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0%" stop-color="#f89b12"/>
+    <stop offset="100%" stop-color="#ffb341"/>
+  </linearGradient>
+  <linearGradient id="ad2" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0%" stop-color="#22b8c6"/>
+    <stop offset="100%" stop-color="#2ce3d3"/>
+  </linearGradient>
+  <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
+    <feDropShadow dx="0" dy="6" stdDeviation="8" flood-opacity="0.18"/>
+  </filter>
+  <filter id="softglow" x="-80%" y="-80%" width="260%" height="260%">
+    <feGaussianBlur stdDeviation="12"/>
+  </filter>
+  <pattern id="ceilingLines" width="100" height="100" patternUnits="userSpaceOnUse">
+    <rect width="100" height="100" fill="none"/>
+    <line x1="0" y1="0" x2="0" y2="100" stroke="#718699" stroke-width="2" opacity="0.15"/>
+  </pattern>
+</defs>
+
+<rect width="1600" height="900" fill="url(#bg)"/>
+<rect width="1600" height="900" fill="url(#ceilingLines)"/>
+
+<!-- ceiling light glow -->
+<g opacity="0.25">
+  <ellipse cx="310" cy="78" rx="120" ry="38" fill="#fff8cc" filter="url(#softglow)"/>
+  <ellipse cx="820" cy="78" rx="120" ry="38" fill="#fff8cc" filter="url(#softglow)"/>
+  <ellipse cx="1320" cy="78" rx="120" ry="38" fill="#fff8cc" filter="url(#softglow)"/>
+</g>
+
+<!-- sign boards hanging -->
+<g filter="url(#shadow)">
+  <line x1="315" y1="0" x2="315" y2="85" stroke="#413e4f" stroke-width="4"/>
+  <line x1="430" y1="0" x2="430" y2="85" stroke="#413e4f" stroke-width="4"/>
+  <rect x="250" y="85" width="250" height="88" rx="2" fill="url(#screenDark)"/>
+  <rect x="264" y="98" width="76" height="62" fill="url(#ad1)"/>
+  <g stroke="#fff7e5" stroke-width="8" stroke-linecap="round">
+    <line x1="287" y1="114" x2="322" y2="114"/>
+    <line x1="287" y1="129" x2="322" y2="129"/>
+    <line x1="287" y1="144" x2="322" y2="144"/>
+  </g>
+  <g fill="#f4dd48">
+    <circle cx="375" cy="112" r="12"/>
+    <circle cx="375" cy="141" r="12"/>
+  </g>
+  <g stroke="#e7ebef" stroke-width="5" stroke-linecap="round">
+    <line x1="399" y1="111" x2="424" y2="111"/>
+    <line x1="399" y1="141" x2="424" y2="141"/>
+    <line x1="458" y1="108" x2="479" y2="129"/>
+    <line x1="458" y1="150" x2="479" y2="129"/>
+  </g>
+
+  <line x1="910" y1="0" x2="910" y2="85" stroke="#413e4f" stroke-width="4"/>
+  <line x1="1080" y1="0" x2="1080" y2="85" stroke="#413e4f" stroke-width="4"/>
+  <rect x="875" y="85" width="265" height="88" rx="2" fill="url(#screenDark)"/>
+  <rect x="890" y="98" width="72" height="62" fill="url(#ad1)"/>
+  <g stroke="#fff7e5" stroke-width="8" stroke-linecap="round">
+    <line x1="912" y1="114" x2="947" y2="114"/>
+    <line x1="912" y1="129" x2="947" y2="129"/>
+    <line x1="912" y1="144" x2="947" y2="144"/>
+  </g>
+  <g fill="#f4dd48">
+    <circle cx="1000" cy="112" r="12"/>
+    <circle cx="1050" cy="112" r="12"/>
+  </g>
+  <g stroke="#e7ebef" stroke-width="5" stroke-linecap="round">
+    <line x1="981" y1="112" x2="990" y2="112"/>
+    <line x1="1012" y1="112" x2="1022" y2="112"/>
+    <line x1="1062" y1="112" x2="1072" y2="112"/>
+    <line x1="1089" y1="112" x2="1104" y2="112"/>
+  </g>
+  <rect x="987" y="136" width="110" height="15" fill="url(#ad2)"/>
+</g>
+
+<!-- wall band -->
+<rect x="0" y="290" width="1600" height="24" fill="url(#wallBand)"/>
+
+<!-- far bench and ads on back wall -->
+<g filter="url(#shadow)">
+  <rect x="70" y="318" width="180" height="62" rx="8" fill="#687381"/>
+  <rect x="82" y="328" width="156" height="38" fill="#cfdce0"/>
+  <rect x="106" y="337" width="52" height="20" fill="#7ec9ff"/>
+  <rect x="168" y="337" width="52" height="20" fill="#ff8fa4"/>
+
+  <rect x="1310" y="320" width="185" height="58" rx="6" fill="#687381"/>
+  <rect x="1322" y="331" width="70" height="36" fill="#ffc05a"/>
+  <rect x="1401" y="331" width="82" height="36" fill="#77e0d3"/>
+</g>
+
+<!-- train -->
+<g filter="url(#shadow)">
+  <rect x="0" y="290" width="1230" height="420" rx="26" fill="url(#trainBody)"/>
+  <rect x="1040" y="290" width="190" height="420" rx="26" fill="#d33a18"/>
+  <rect x="0" y="290" width="65" height="420" fill="#d33a18"/>
+
+  <!-- door blocks -->
+  <g>
+    <rect x="140" y="295" width="155" height="330" rx="45" fill="#d63816"/>
+    <rect x="144" y="301" width="71" height="318" rx="38" fill="url(#trainWindow)"/>
+    <rect x="220" y="301" width="71" height="318" rx="38" fill="url(#trainWindow)"/>
+    <line x1="218" y1="303" x2="218" y2="621" stroke="#6b3030" stroke-width="6"/>
+
+    <rect x="585" y="295" width="155" height="330" rx="45" fill="#d63816"/>
+    <rect x="589" y="301" width="71" height="318" rx="38" fill="url(#trainWindow)"/>
+    <rect x="665" y="301" width="71" height="318" rx="38" fill="url(#trainWindow)"/>
+    <line x1="663" y1="303" x2="663" y2="621" stroke="#6b3030" stroke-width="6"/>
+  </g>
+
+  <!-- windows -->
+  <g>
+    <rect x="18" y="382" width="92" height="118" rx="8" fill="#343547"/>
+    <rect x="26" y="390" width="76" height="102" rx="6" fill="url(#trainWindow)"/>
+
+    <rect x="342" y="382" width="144" height="118" rx="8" fill="#343547"/>
+    <rect x="350" y="390" width="128" height="102" rx="6" fill="url(#trainWindow)"/>
+
+    <rect x="800" y="382" width="144" height="118" rx="8" fill="#343547"/>
+    <rect x="808" y="390" width="128" height="102" rx="6" fill="url(#trainWindow)"/>
+
+    <rect x="1110" y="342" width="72" height="172" rx="8" fill="#343547"/>
+    <rect x="1118" y="350" width="56" height="156" rx="6" fill="url(#trainWindow)"/>
+  </g>
+
+  <!-- silhouettes inside train (very abstract, no people on platform) -->
+  <g opacity="0.28" fill="#734e49">
+    <rect x="32" y="438" width="42" height="54" rx="18"/>
+    <rect x="67" y="418" width="26" height="74" rx="12"/>
+    <rect x="375" y="404" width="44" height="88" rx="20"/>
+    <rect x="425" y="422" width="30" height="70" rx="14"/>
+    <rect x="836" y="400" width="52" height="92" rx="22"/>
+    <rect x="887" y="420" width="26" height="72" rx="12"/>
+    <rect x="1134" y="370" width="32" height="120" rx="14"/>
+  </g>
+
+  <!-- hand straps -->
+  <g stroke="#7a5b34" stroke-width="4" fill="none">
+    <line x1="77" y1="392" x2="77" y2="450"/><circle cx="77" cy="456" r="12"/>
+    <line x1="190" y1="332" x2="190" y2="390"/><circle cx="190" cy="396" r="12"/>
+    <line x1="270" y1="332" x2="270" y2="390"/><circle cx="270" cy="396" r="12"/>
+    <line x1="635" y1="332" x2="635" y2="390"/><circle cx="635" cy="396" r="12"/>
+    <line x1="710" y1="332" x2="710" y2="390"/><circle cx="710" cy="396" r="12"/>
+    <line x1="890" y1="392" x2="890" y2="450"/><circle cx="890" cy="456" r="12"/>
+    <line x1="1150" y1="354" x2="1150" y2="412"/><circle cx="1150" cy="418" r="12"/>
+  </g>
+
+  <!-- front cab -->
+  <rect x="1128" y="324" width="80" height="212" rx="16" fill="#c42d13"/>
+  <rect x="1144" y="344" width="42" height="54" rx="4" fill="#2f3144"/>
+  <rect x="1148" y="349" width="34" height="14" rx="2" fill="#f7a326"/>
+</g>
+
+<!-- escalator on right -->
+<g filter="url(#shadow)">
+  <polygon points="1120,735 1430,735 1600,470 1290,470" fill="#5f596f"/>
+  <polygon points="1145,714 1405,714 1552,489 1293,489" fill="#b8ccd4"/>
+  <g stroke="#8aa7b4" stroke-width="3">
+    <line x1="1175" y1="705" x2="1426" y2="705"/>
+    <line x1="1200" y1="669" x2="1450" y2="669"/>
+    <line x1="1225" y1="633" x2="1473" y2="633"/>
+    <line x1="1249" y1="597" x2="1497" y2="597"/>
+    <line x1="1273" y1="561" x2="1520" y2="561"/>
+    <line x1="1298" y1="525" x2="1543" y2="525"/>
+  </g>
+  <rect x="1138" y="646" width="134" height="72" rx="14" fill="#748ca0"/>
+  <rect x="1148" y="656" width="114" height="52" rx="10" fill="url(#glass)"/>
+</g>
+
+<!-- platform edge -->
+<rect x="0" y="710" width="1600" height="66" fill="url(#platformTop)"/>
+<rect x="0" y="748" width="1600" height="8" fill="#f1db4c"/>
+<rect x="0" y="756" width="1600" height="20" fill="#b7b6bf"/>
+
+<!-- bench on platform -->
+<g filter="url(#shadow)">
+  <rect x="285" y="648" width="180" height="24" rx="6" fill="#687381"/>
+  <rect x="295" y="616" width="160" height="28" rx="8" fill="#8d95a3"/>
+  <rect x="312" y="673" width="10" height="46" fill="#4d5561"/>
+  <rect x="428" y="673" width="10" height="46" fill="#4d5561"/>
+</g>
+
+<!-- ad lightbox on platform -->
+<g filter="url(#shadow)">
+  <rect x="570" y="600" width="220" height="110" rx="6" fill="#65717d"/>
+  <rect x="582" y="612" width="196" height="86" fill="#f4f8fb"/>
+  <rect x="595" y="625" width="84" height="60" fill="#5ec7f6"/>
+  <rect x="688" y="625" width="77" height="60" fill="#ffca63"/>
+</g>
+
+<!-- home lights -->
+<g>
+  <rect x="90" y="248" width="160" height="20" rx="10" fill="#f7f7ef"/>
+  <rect x="540" y="248" width="170" height="20" rx="10" fill="#f7f7ef"/>
+  <rect x="980" y="248" width="170" height="20" rx="10" fill="#f7f7ef"/>
+  <rect x="1330" y="248" width="160" height="20" rx="10" fill="#f7f7ef"/>
+</g>
+
+<!-- tracks -->
+<rect x="0" y="776" width="1600" height="32" fill="#3b3645"/>
+<rect x="0" y="808" width="1600" height="26" fill="#251f2c"/>
+<g>
+  <rect x="0" y="834" width="1600" height="66" fill="#4a4150"/>
+  <rect x="0" y="846" width="1600" height="8" fill="#71697c"/>
+  <rect x="0" y="880" width="1600" height="8" fill="#71697c"/>
+  <g fill="#2a2430">
+    <rect x="30" y="842" width="24" height="50"/>
+    <rect x="98" y="842" width="24" height="50"/>
+    <rect x="166" y="842" width="24" height="50"/>
+    <rect x="234" y="842" width="24" height="50"/>
+    <rect x="302" y="842" width="24" height="50"/>
+    <rect x="370" y="842" width="24" height="50"/>
+    <rect x="438" y="842" width="24" height="50"/>
+    <rect x="506" y="842" width="24" height="50"/>
+    <rect x="574" y="842" width="24" height="50"/>
+    <rect x="642" y="842" width="24" height="50"/>
+    <rect x="710" y="842" width="24" height="50"/>
+    <rect x="778" y="842" width="24" height="50"/>
+    <rect x="846" y="842" width="24" height="50"/>
+    <rect x="914" y="842" width="24" height="50"/>
+    <rect x="982" y="842" width="24" height="50"/>
+    <rect x="1050" y="842" width="24" height="50"/>
+    <rect x="1118" y="842" width="24" height="50"/>
+    <rect x="1186" y="842" width="24" height="50"/>
+    <rect x="1254" y="842" width="24" height="50"/>
+    <rect x="1322" y="842" width="24" height="50"/>
+    <rect x="1390" y="842" width="24" height="50"/>
+    <rect x="1458" y="842" width="24" height="50"/>
+    <rect x="1526" y="842" width="24" height="50"/>
+  </g>
+</g>
+
+<!-- subtle vignette -->
+<rect x="0" y="0" width="1600" height="900" fill="none" stroke="#000000" stroke-opacity="0.10" stroke-width="28"/>
+</svg>
