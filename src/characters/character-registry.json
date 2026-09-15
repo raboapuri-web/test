@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "1.0",
+  "purpose": "AI-readable character template registry for Remotion scene planning and character selection.",
+  "characters": [
+    {
+      "id": "male_20s_office_faceless",
+      "component": "MaleCharacter",
+      "roleTags": ["protagonist", "office_worker", "young_man", "urban_resident"],
+      "ageRange": "late_20s",
+      "style": ["faceless", "flat_vector", "cinematic", "minimal"],
+      "availablePoses": ["standing", "phone", "lookingWindow", "sitting"],
+      "availableDirections": ["left", "right", "front", "back"],
+      "availableOutfits": ["businessCasual", "casual", "formal"],
+      "availableProps": ["none", "phone"],
+      "sceneTypes": ["home", "tower_mansion", "office", "street", "hotel", "elevator"],
+      "narrativeUse": ["港区文学の男性主人公", "会社員の日常", "成功と孤独の対比", "スマホを見る・窓を見る・座る場面"]
+    },
+    {
+      "id": "female_20s_urban_faceless",
+      "component": "FemaleCharacter",
+      "roleTags": ["partner", "friend", "urban_woman", "young_woman"],
+      "ageRange": "late_20s",
+      "style": ["faceless", "flat_vector", "cinematic", "minimal"],
+      "availablePoses": ["standing", "phone", "lookingWindow", "sitting"],
+      "availableDirections": ["left", "right", "front", "back"],
+      "availableOutfits": ["businessCasual", "casual", "formal"],
+      "availableProps": ["none", "phone"],
+      "sceneTypes": ["home", "tower_mansion", "office", "street", "hotel", "elevator"],
+      "narrativeUse": ["港区文学の女性登場人物", "都市生活者の日常", "友人・恋人・同僚役", "スマホを見る・窓を見る・座る場面"]
+    }
+  ]
+}
