@@ -1,0 +1,61 @@
+name: Register Yurakucho Station Platform Night Asset
+
+on:
+  push:
+    paths:
+      - '.github/workflows/register-bg-yurakucho-station-platform-night.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  register:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Register asset in master JSON
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          path = Path('public/assets/asset-registry.json')
+          data = json.loads(path.read_text(encoding='utf-8'))
+          asset_id = 'bg_yurakucho_station_platform_night'
+          if not any(a.get('id') == asset_id for a in data.get('assets', [])):
+              data['assets'].append({
+                  'id': asset_id,
+                  'type': 'background',
+                  'family': 'yurakucho_station_platform',
+                  'variant': 'night_train_platform',
+                  'path': 'assets/backgrounds/BG_yurakucho_station_platform_night.svg',
+                  'location': ['Tokyo','Chiyoda','Yurakucho','station','platform','railway'],
+                  'timeOfDay': ['evening','night','late_night'],
+                  'sceneTypes': ['station','commute','departure','arrival','waiting','urban_transition','night_travel','railway'],
+                  'mood': ['urban','cool','quiet','transitional','night','commuter'],
+                  'narrativeUse': [
+                      '有楽町駅の夜のホームとして使う',
+                      '電車待ち・乗車前後・帰宅・場面転換のシーンに使う',
+                      'ベンチ、広告、ホーム照明、線路、停車中の電車を含む都市の駅風景を示す'
+                  ],
+                  'visualKeywords': ['Yurakucho station','station platform','night train','bench','advertisement','platform lights','railway tracks','escalator'],
+                  'avoidWhen': ['daytime rural station','luxury hotel','restaurant interior','residential room'],
+                  'shot': {
+                      'type': 'station_platform',
+                      'framing': 'wide_sideview',
+                      'recommendedMotion': ['slowPan','slowPushIn','subtleParallax','trainLightFlicker']
+                  }
+              })
+              path.write_text(json.dumps(data, ensure_ascii=False, separators=(',', ':')), encoding='utf-8')
+          PY
+      - name: Commit registry update
+        run: |
+          if git diff --quiet -- public/assets/asset-registry.json; then
+            echo 'Registry already up to date.'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add public/assets/asset-registry.json
+          git commit -m 'Register Yurakucho station platform night asset'
+          git push
