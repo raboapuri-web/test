@@ -1,0 +1,139 @@
+name: Register Vehicle and Pool Props
+
+on:
+  push:
+    paths:
+      - '.github/workflows/register-vehicle-pool-props.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  register:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Register props in master JSON
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          path = Path('public/assets/asset-registry.json')
+          data = json.loads(path.read_text(encoding='utf-8'))
+          assets = data.setdefault('assets', [])
+          existing = {a.get('id') for a in assets}
+
+          new_assets = [
+              {
+                  'id': 'prop_taxi_black_split',
+                  'type': 'prop',
+                  'family': 'taxi_vehicle',
+                  'variant': 'black_split_parts',
+                  'path': 'assets/props/PROP_taxi_black_split.svg',
+                  'location': ['Tokyo','street','station','road','urban'],
+                  'timeOfDay': ['any','day','evening','night'],
+                  'sceneTypes': ['taxi','arrival','departure','ride','pickup','dropoff','urban_transition','vehicle'],
+                  'mood': ['urban','ordinary','realistic','transitional'],
+                  'narrativeUse': [
+                      '東京都心でのタクシー移動や乗降シーンに使う',
+                      '車体・前輪・後輪・後部ドアをSVG内で個別にアニメーションさせる',
+                      '後部ドアの開閉やタイヤ回転を伴う乗車・降車演出に使う'
+                  ],
+                  'visualKeywords': ['black taxi','Tokyo taxi','split vehicle parts','rear door','separate wheels','car pickup'],
+                  'avoidWhen': ['rural farm','luxury limousine','interior-only scene'],
+                  'shot': {
+                      'type': 'overlay_prop',
+                      'framing': 'vehicle_side_threequarter',
+                      'recommendedMotion': ['driveIn','driveOut','wheelRotate','rearDoorOpen','rearDoorClose','subtleParallax']
+                  },
+                  'parts': ['body','rearDoor','wheelFront','wheelRear']
+              },
+              {
+                  'id': 'prop_minivan_white_side',
+                  'type': 'prop',
+                  'family': 'white_minivan',
+                  'variant': 'side',
+                  'path': 'assets/props/PROP_minivan_white_side.svg',
+                  'location': ['suburban','residential','road','parking','family_home'],
+                  'timeOfDay': ['any','day','evening'],
+                  'sceneTypes': ['family_trip','pickup','dropoff','moving','parking','suburban_life','vehicle'],
+                  'mood': ['ordinary','family','clean','practical'],
+                  'narrativeUse': [
+                      '家族用の白いミニバンを横から見せるシーンに使う',
+                      '郊外の住宅・送迎・旅行・駐車シーンの小物として使う'
+                  ],
+                  'visualKeywords': ['white minivan','family car','side view','suburban vehicle'],
+                  'avoidWhen': ['taxi scene','sports car','train interior'],
+                  'shot': {
+                      'type': 'overlay_prop',
+                      'framing': 'vehicle_side',
+                      'recommendedMotion': ['driveIn','driveOut','slowPass','subtleParallax']
+                  }
+              },
+              {
+                  'id': 'prop_minivan_white_angled',
+                  'type': 'prop',
+                  'family': 'white_minivan',
+                  'variant': 'angled',
+                  'path': 'assets/props/PROP_minivan_white_angled.svg',
+                  'location': ['suburban','residential','road','parking','family_home'],
+                  'timeOfDay': ['any','day','evening'],
+                  'sceneTypes': ['family_trip','pickup','dropoff','moving','parking','arrival','vehicle'],
+                  'mood': ['ordinary','family','clean','practical'],
+                  'narrativeUse': [
+                      '白いミニバンを斜め方向から見せる到着・駐車シーンに使う',
+                      '戸建ての前や郊外の道路で立体感のある車両カットに使う'
+                  ],
+                  'visualKeywords': ['white minivan','family car','angled view','three quarter vehicle'],
+                  'avoidWhen': ['taxi scene','sports car','train interior'],
+                  'shot': {
+                      'type': 'overlay_prop',
+                      'framing': 'vehicle_threequarter',
+                      'recommendedMotion': ['driveIn','parkIn','slowPushIn','subtleParallax']
+                  }
+              },
+              {
+                  'id': 'prop_small_vinyl_pool',
+                  'type': 'prop',
+                  'family': 'vinyl_pool',
+                  'variant': 'small_blue',
+                  'path': 'assets/props/PROP_small_vinyl_pool.svg',
+                  'location': ['yard','garden','balcony','suburban_home','outdoor'],
+                  'timeOfDay': ['day','afternoon','summer'],
+                  'sceneTypes': ['family_home','summer','children','yard','weekend','ordinary_life'],
+                  'mood': ['bright','casual','family','summer','nostalgic'],
+                  'narrativeUse': [
+                      '戸建ての庭やベランダに置く小型ビニールプールとして使う',
+                      '夏の家族生活や子どものいる家庭を記号的に示す小物として使う'
+                  ],
+                  'visualKeywords': ['small vinyl pool','blue pool','kids pool','summer yard','family garden'],
+                  'avoidWhen': ['night street','restaurant','office','winter scene'],
+                  'shot': {
+                      'type': 'overlay_prop',
+                      'framing': 'object',
+                      'recommendedMotion': ['static','subtleParallax','waterRipple']
+                  }
+              }
+          ]
+
+          changed = False
+          for asset in new_assets:
+              if asset['id'] not in existing:
+                  assets.append(asset)
+                  changed = True
+
+          if changed:
+              path.write_text(json.dumps(data, ensure_ascii=False, separators=(',', ':')), encoding='utf-8')
+          PY
+      - name: Commit registry update
+        run: |
+          if git diff --quiet -- public/assets/asset-registry.json; then
+            echo 'Registry already up to date.'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add public/assets/asset-registry.json
+          git commit -m 'Register vehicle and pool props'
+          git push
