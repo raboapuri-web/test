@@ -5,6 +5,7 @@ export type {
   CharacterDirection,
   CharacterOutfit,
   CharacterProp,
+  CharacterColors,
 } from "./CharacterBase";
 export {MaleCharacter} from "./MaleCharacter";
 export type {MaleCharacterProps} from "./MaleCharacter";
