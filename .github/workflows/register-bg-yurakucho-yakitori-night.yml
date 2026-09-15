@@ -1,0 +1,61 @@
+name: Register Yurakucho Yakitori Night Asset
+
+on:
+  push:
+    paths:
+      - '.github/workflows/register-bg-yurakucho-yakitori-night.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  register:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Register asset in master JSON
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          path = Path('public/assets/asset-registry.json')
+          data = json.loads(path.read_text(encoding='utf-8'))
+          asset_id = 'bg_yurakucho_yakitori_night'
+          if not any(a.get('id') == asset_id for a in data.get('assets', [])):
+              data['assets'].append({
+                  'id': asset_id,
+                  'type': 'background',
+                  'family': 'yurakucho_yakitori',
+                  'variant': 'night_casual_counter_shop',
+                  'path': 'assets/backgrounds/BG_yurakucho_yakitori_night.svg',
+                  'location': ['Tokyo','Chiyoda','Yurakucho','yakitori','izakaya','interior'],
+                  'timeOfDay': ['evening','night','late_night'],
+                  'sceneTypes': ['drinking','yakitori','after_work','friends','casual_meal','conversation','nightlife','ordinary_life'],
+                  'mood': ['warm','casual','old-fashioned','unpretentious','urban','lived_in','nostalgic'],
+                  'narrativeUse': [
+                      '有楽町の都心にある気取っていない焼鳥店の店内として使う',
+                      '会社帰りの飲みや友人同士の会話、庶民的な食事シーンに使う',
+                      '木のカウンター、短冊メニュー、暖色照明、オープンキッチンで昔ながらの東京らしい空気を出す'
+                  ],
+                  'visualKeywords': ['Yurakucho','yakitori restaurant','wood counter','menu plaques','warm lights','open kitchen','casual Tokyo restaurant','old-fashioned izakaya'],
+                  'avoidWhen': ['luxury restaurant','hotel','daytime exterior','modern upscale bar'],
+                  'shot': {
+                      'type': 'interior_restaurant',
+                      'framing': 'wide_counter_view',
+                      'recommendedMotion': ['slowPushIn','slowPan','subtleParallax','warmLightFlicker']
+                  }
+              })
+              path.write_text(json.dumps(data, ensure_ascii=False, separators=(',', ':')), encoding='utf-8')
+          PY
+      - name: Commit registry update
+        run: |
+          if git diff --quiet -- public/assets/asset-registry.json; then
+            echo 'Registry already up to date.'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add public/assets/asset-registry.json
+          git commit -m 'Register Yurakucho yakitori night asset'
+          git push
