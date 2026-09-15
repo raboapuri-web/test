@@ -1,0 +1,396 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+<defs>
+  <linearGradient id="nightSky" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%" stop-color="#06101a"/>
+    <stop offset="55%" stop-color="#0b1323"/>
+    <stop offset="100%" stop-color="#15161b"/>
+  </linearGradient>
+
+  <linearGradient id="road" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%" stop-color="#453229"/>
+    <stop offset="100%" stop-color="#241b18"/>
+  </linearGradient>
+
+  <linearGradient id="leftFacadeA" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0%" stop-color="#6d4a2f"/>
+    <stop offset="100%" stop-color="#8c5a35"/>
+  </linearGradient>
+
+  <linearGradient id="leftFacadeB" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0%" stop-color="#3c2a26"/>
+    <stop offset="100%" stop-color="#6a3c2d"/>
+  </linearGradient>
+
+  <linearGradient id="rightFacadeA" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%" stop-color="#604031"/>
+    <stop offset="100%" stop-color="#8a5127"/>
+  </linearGradient>
+
+  <linearGradient id="rightFacadeB" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%" stop-color="#363033"/>
+    <stop offset="100%" stop-color="#1f1d1f"/>
+  </linearGradient>
+
+  <linearGradient id="paperLight" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%" stop-color="#fffbe8"/>
+    <stop offset="100%" stop-color="#f7e4b2"/>
+  </linearGradient>
+
+  <linearGradient id="lanternRed" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%" stop-color="#ff6a45"/>
+    <stop offset="100%" stop-color="#ca2314"/>
+  </linearGradient>
+
+  <linearGradient id="lanternWhite" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%" stop-color="#fffef4"/>
+    <stop offset="100%" stop-color="#efe1bf"/>
+  </linearGradient>
+
+  <linearGradient id="signYellow" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0%" stop-color="#ffef87"/>
+    <stop offset="100%" stop-color="#d59e19"/>
+  </linearGradient>
+
+  <linearGradient id="signBlue" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0%" stop-color="#63e0ff"/>
+    <stop offset="100%" stop-color="#3652cf"/>
+  </linearGradient>
+
+  <linearGradient id="signPink" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0%" stop-color="#ffa0d0"/>
+    <stop offset="100%" stop-color="#ea3b8f"/>
+  </linearGradient>
+
+  <linearGradient id="windowGlow" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%" stop-color="#fff0c1"/>
+    <stop offset="100%" stop-color="#ffb54c"/>
+  </linearGradient>
+
+  <filter id="glowSoft" x="-100%" y="-100%" width="300%" height="300%">
+    <feGaussianBlur stdDeviation="14"/>
+  </filter>
+
+  <filter id="glowSmall" x="-100%" y="-100%" width="300%" height="300%">
+    <feGaussianBlur stdDeviation="7"/>
+  </filter>
+
+  <filter id="shadow" x="-30%" y="-30%" width="180%" height="180%">
+    <feDropShadow dx="0" dy="8" stdDeviation="8" flood-color="#000" flood-opacity=".28"/>
+  </filter>
+
+  <pattern id="roofTile" width="34" height="22" patternUnits="userSpaceOnUse">
+    <rect width="34" height="22" fill="#262123"/>
+    <path d="M0 10 H34" stroke="#423a3b" stroke-width="2"/>
+    <path d="M0 22 H34" stroke="#131012" stroke-width="2"/>
+  </pattern>
+
+  <pattern id="asphalt" width="70" height="70" patternUnits="userSpaceOnUse">
+    <rect width="70" height="70" fill="none"/>
+    <circle cx="18" cy="14" r="1.5" fill="#6e5644" opacity=".25"/>
+    <circle cx="38" cy="55" r="2" fill="#5a4133" opacity=".18"/>
+    <circle cx="58" cy="26" r="1.5" fill="#7d5a45" opacity=".22"/>
+  </pattern>
+</defs>
+
+<rect width="1600" height="900" fill="url(#nightSky)"/>
+
+<!-- deep alley haze -->
+<ellipse cx="800" cy="265" rx="150" ry="80" fill="#ffd174" opacity=".18" filter="url(#glowSoft)"/>
+<ellipse cx="790" cy="315" rx="170" ry="100" fill="#ff7b2f" opacity=".10" filter="url(#glowSoft)"/>
+
+<!-- road -->
+<polygon points="565,330 1035,330 1325,900 275,900" fill="url(#road)"/>
+<polygon points="565,330 1035,330 1325,900 275,900" fill="url(#asphalt)" opacity=".55"/>
+
+<!-- curb -->
+<path d="M548 332 L565 330 L275 900 L248 900 Z" fill="#a58f72"/>
+<path d="M1035 330 L1052 332 L1352 900 L1325 900 Z" fill="#a58f72"/>
+
+<!-- manholes -->
+<ellipse cx="773" cy="790" rx="34" ry="22" fill="#6e645c" opacity=".7"/>
+<ellipse cx="735" cy="855" rx="18" ry="11" fill="#524842" opacity=".65"/>
+<g opacity=".35" stroke="#dad2cb" stroke-width="2" fill="none">
+  <ellipse cx="773" cy="790" rx="24" ry="15"/>
+  <path d="M749 790 H797 M773 775 V805"/>
+</g>
+
+<!-- overhead wires -->
+<g stroke="#141317" fill="none" stroke-linecap="round">
+  <path d="M120 66 C390 106 720 84 1060 76 C1270 71 1420 90 1548 120" stroke-width="4"/>
+  <path d="M170 120 C490 165 980 152 1495 145" stroke-width="3"/>
+  <path d="M465 40 C670 74 890 60 1180 74" stroke-width="2.5"/>
+  <line x1="420" y1="85" x2="430" y2="305" stroke-width="4"/>
+  <line x1="690" y1="78" x2="692" y2="326" stroke-width="4"/>
+  <line x1="903" y1="82" x2="900" y2="352" stroke-width="4"/>
+  <line x1="1175" y1="86" x2="1160" y2="310" stroke-width="4"/>
+  <line x1="1310" y1="95" x2="1290" y2="260" stroke-width="4"/>
+</g>
+
+<!-- utility poles -->
+<g>
+  <rect x="680" y="110" width="11" height="360" fill="#302d33"/>
+  <rect x="1122" y="145" width="11" height="300" fill="#2d2a31"/>
+  <g stroke="#27242a" stroke-width="3">
+    <line x1="685" y1="165" x2="750" y2="160"/>
+    <line x1="685" y1="205" x2="760" y2="198"/>
+    <line x1="1127" y1="210" x2="1186" y2="205"/>
+    <line x1="1127" y1="244" x2="1200" y2="237"/>
+  </g>
+</g>
+
+<!-- left block -->
+<g filter="url(#shadow)">
+  <polygon points="0,0 470,0 530,425 0,512" fill="url(#leftFacadeA)"/>
+  <polygon points="0,160 300,125 326,250 0,290" fill="#e3ab16"/>
+  <polygon points="0,300 395,248 450,418 0,497" fill="#eec72d"/>
+  <polygon points="188,0 468,0 530,425 338,396" fill="#582a27" opacity=".27"/>
+
+  <!-- upper details -->
+  <rect x="72" y="120" width="92" height="66" rx="4" fill="#d0c8b7"/>
+  <rect x="82" y="132" width="72" height="46" rx="3" fill="#a7acaa"/>
+  <line x1="165" y1="144" x2="205" y2="144" stroke="#786654" stroke-width="8"/>
+  <line x1="206" y1="144" x2="222" y2="278" stroke="#786654" stroke-width="6"/>
+  <rect x="288" y="18" width="150" height="270" fill="#c54141" opacity=".18"/>
+
+  <!-- izakaya storefront 1 -->
+  <rect x="18" y="472" width="225" height="248" fill="#251410"/>
+  <rect x="28" y="482" width="84" height="228" fill="#120908"/>
+  <rect x="114" y="482" width="116" height="228" fill="#552417"/>
+  <rect x="40" y="510" width="178" height="115" fill="#ff781f" opacity=".16"/>
+  <g fill="#f0dfbb">
+    <rect x="33" y="430" width="205" height="18"/>
+    <rect x="36" y="446" width="199" height="18"/>
+  </g>
+  <!-- noren -->
+  <g>
+    <rect x="28" y="442" width="42" height="105" fill="#f5ecd8"/>
+    <rect x="73" y="442" width="42" height="105" fill="#f5ecd8"/>
+    <rect x="118" y="442" width="42" height="105" fill="#f5ecd8"/>
+    <rect x="163" y="442" width="42" height="105" fill="#f5ecd8"/>
+    <path d="M40 486 C52 468 62 464 72 490" stroke="#2d2625" stroke-width="8" fill="none" stroke-linecap="round"/>
+    <path d="M83 508 C95 476 108 477 107 513" stroke="#2d2625" stroke-width="8" fill="none" stroke-linecap="round"/>
+    <path d="M126 491 C141 473 150 476 159 507" stroke="#2d2625" stroke-width="8" fill="none" stroke-linecap="round"/>
+    <path d="M169 509 C182 481 195 479 197 513" stroke="#2d2625" stroke-width="8" fill="none" stroke-linecap="round"/>
+  </g>
+
+  <!-- bottles inside -->
+  <g fill="#3d271e">
+    <rect x="48" y="594" width="156" height="10"/>
+  </g>
+  <g fill="#705237">
+    <rect x="50" y="560" width="14" height="34"/>
+    <rect x="74" y="548" width="13" height="46"/>
+    <rect x="96" y="554" width="14" height="40"/>
+    <rect x="120" y="546" width="14" height="48"/>
+    <rect x="145" y="552" width="13" height="42"/>
+    <rect x="168" y="550" width="15" height="44"/>
+  </g>
+
+  <!-- lanterns -->
+  <circle cx="24" cy="525" r="35" fill="url(#lanternRed)"/>
+  <circle cx="24" cy="525" r="35" fill="#ff8355" opacity=".25" filter="url(#glowSmall)"/>
+  <path d="M10 508 Q23 500 34 530" stroke="#341d1c" stroke-width="8" fill="none" stroke-linecap="round"/>
+
+  <circle cx="250" cy="478" r="25" fill="url(#lanternRed)"/>
+  <circle cx="250" cy="478" r="25" fill="#ff8355" opacity=".22" filter="url(#glowSmall)"/>
+
+  <circle cx="302" cy="448" r="20" fill="url(#lanternWhite)"/>
+  <circle cx="302" cy="448" r="20" fill="#fff8d2" opacity=".22" filter="url(#glowSmall)"/>
+
+  <!-- standing board -->
+  <rect x="246" y="638" width="70" height="148" fill="#222021" transform="rotate(-8 246 638)"/>
+  <rect x="257" y="652" width="48" height="34" fill="#3a3638" transform="rotate(-8 257 652)"/>
+  <rect x="258" y="698" width="48" height="58" fill="#f09c37" transform="rotate(-8 258 698)"/>
+  <rect x="264" y="712" width="36" height="5" rx="2" fill="#f8db9a" transform="rotate(-8 264 712)"/>
+  <rect x="264" y="724" width="30" height="5" rx="2" fill="#f8db9a" transform="rotate(-8 264 724)"/>
+  <circle cx="286" cy="686" r="9" fill="#f5dd9f"/>
+
+  <!-- small exterior set -->
+  <rect x="318" y="650" width="38" height="55" fill="#b73c2b"/>
+  <rect x="322" y="708" width="30" height="42" fill="#c4801f"/>
+  <rect x="45" y="726" width="48" height="58" fill="#6a6b6a"/>
+  <rect x="106" y="740" width="18" height="54" fill="#2f2927"/>
+  <rect x="131" y="742" width="18" height="52" fill="#2f2927"/>
+</g>
+
+<!-- right block -->
+<g filter="url(#shadow)">
+  <polygon points="1090,0 1600,0 1600,485 1022,420" fill="url(#rightFacadeA)"/>
+  <polygon points="1082,84 1600,44 1600,330 1100,295" fill="#fcfcf6"/>
+  <polygon points="1048,314 1600,344 1600,548 1038,485" fill="#dc7d19"/>
+  <polygon points="1274,304 1600,314 1600,466 1212,436" fill="url(#roofTile)"/>
+
+  <!-- colorful sign wall -->
+  <rect x="1140" y="115" width="58" height="122" fill="#ef503b"/>
+  <rect x="1209" y="109" width="58" height="128" fill="#3258eb"/>
+  <rect x="1280" y="109" width="59" height="128" fill="#32a551"/>
+  <rect x="1353" y="108" width="60" height="128" fill="#df3261"/>
+  <rect x="1426" y="107" width="71" height="128" fill="#3f3937"/>
+
+  <!-- upper sign -->
+  <rect x="1154" y="61" width="336" height="44" rx="5" fill="#fffdf2"/>
+  <rect x="1154" y="61" width="336" height="44" rx="5" fill="#fffbd7" opacity=".22" filter="url(#glowSmall)"/>
+
+  <!-- storefront 2 -->
+  <rect x="1268" y="456" width="236" height="186" fill="#4d190e"/>
+  <rect x="1282" y="470" width="164" height="158" fill="#ae1610"/>
+  <polygon points="1210,414 1492,414 1468,474 1228,474" fill="#d89b2f"/>
+  <rect x="1266" y="500" width="50" height="98" fill="#171616"/>
+  <circle cx="1294" cy="550" r="31" fill="#f6f2e6"/>
+  <circle cx="1294" cy="550" r="31" fill="#fff4c6" opacity=".22" filter="url(#glowSmall)"/>
+
+  <!-- noren and lantern line -->
+  <rect x="1202" y="446" width="146" height="40" fill="#c62b2b"/>
+  <rect x="1346" y="446" width="118" height="40" fill="#f3d257"/>
+  <g>
+    <circle cx="1184" cy="505" r="22" fill="url(#lanternWhite)"/>
+    <circle cx="1228" cy="498" r="28" fill="url(#lanternRed)"/>
+    <circle cx="1276" cy="495" r="28" fill="url(#lanternRed)"/>
+    <circle cx="1324" cy="492" r="28" fill="url(#lanternWhite)"/>
+    <circle cx="1374" cy="491" r="28" fill="url(#lanternRed)"/>
+    <circle cx="1422" cy="490" r="28" fill="url(#lanternRed)"/>
+    <circle cx="1470" cy="488" r="25" fill="url(#lanternWhite)"/>
+    <circle cx="1516" cy="486" r="34" fill="url(#lanternRed)"/>
+  </g>
+  <g>
+    <rect x="1328" y="520" width="55" height="117" fill="#20355a"/>
+    <rect x="1386" y="520" width="55" height="117" fill="#20355a"/>
+    <path d="M1348 580 Q1356 547 1370 582" stroke="#f5efe0" stroke-width="8" fill="none" stroke-linecap="round"/>
+    <path d="M1406 592 C1415 552 1432 562 1427 598" stroke="#f5efe0" stroke-width="8" fill="none" stroke-linecap="round"/>
+  </g>
+
+  <!-- standing boards and crates -->
+  <rect x="1390" y="606" width="98" height="162" fill="#202021"/>
+  <rect x="1402" y="620" width="72" height="39" fill="#f1e6ce"/>
+  <rect x="1402" y="670" width="72" height="35" fill="#e27327"/>
+  <rect x="1402" y="714" width="72" height="34" fill="#f1e6ce"/>
+  <rect x="1420" y="768" width="16" height="64" fill="#3b3939"/>
+  <rect x="1444" y="768" width="16" height="64" fill="#3b3939"/>
+  <rect x="1210" y="690" width="52" height="68" fill="#cf8a20"/>
+  <rect x="1220" y="762" width="42" height="54" fill="#b73727"/>
+  <rect x="1492" y="700" width="44" height="74" fill="#c23f2f"/>
+</g>
+
+<!-- middle layer shop density: extra signs and izakaya cues -->
+<g filter="url(#shadow)">
+  <rect x="430" y="166" width="58" height="208" fill="#cd6426"/>
+  <rect x="440" y="178" width="38" height="184" fill="#ed3f76"/>
+  <rect x="510" y="188" width="86" height="138" rx="8" fill="#fffef4"/>
+  <rect x="510" y="188" width="86" height="138" rx="8" fill="#fff6d9" opacity=".15" filter="url(#glowSmall)"/>
+
+  <rect x="845" y="213" width="40" height="180" fill="#f8f2e9"/>
+  <rect x="853" y="226" width="24" height="14" fill="#3b63d6"/>
+  <rect x="853" y="255" width="18" height="92" fill="#7c6348"/>
+
+  <rect x="972" y="266" width="50" height="164" fill="#f6f2e7"/>
+  <rect x="982" y="280" width="28" height="18" fill="#cb4b2f"/>
+  <rect x="982" y="310" width="20" height="82" fill="#745a43"/>
+
+  <!-- more storefront hint lights -->
+  <rect x="905" y="323" width="70" height="86" fill="#ffdf99" opacity=".92"/>
+  <rect x="732" y="238" width="38" height="116" fill="#f8efe0"/>
+  <rect x="792" y="262" width="24" height="84" fill="#ffc98d"/>
+</g>
+
+<!-- lots of lanterns and lights down alley -->
+<g>
+  <circle cx="374" cy="520" r="22" fill="url(#lanternRed)"/>
+  <circle cx="418" cy="498" r="24" fill="url(#lanternWhite)"/>
+  <circle cx="462" cy="536" r="25" fill="url(#lanternRed)"/>
+  <circle cx="512" cy="557" r="24" fill="url(#lanternWhite)"/>
+  <circle cx="575" cy="584" r="22" fill="url(#lanternRed)"/>
+  <circle cx="637" cy="610" r="18" fill="url(#lanternWhite)"/>
+
+  <circle cx="1018" cy="558" r="20" fill="url(#lanternWhite)"/>
+  <circle cx="1072" cy="532" r="22" fill="url(#lanternRed)"/>
+  <circle cx="1128" cy="559" r="20" fill="url(#lanternWhite)"/>
+  <circle cx="1180" cy="582" r="19" fill="url(#lanternRed)"/>
+  <circle cx="1230" cy="602" r="17" fill="url(#lanternWhite)"/>
+
+  <g opacity=".25" filter="url(#glowSmall)">
+    <circle cx="374" cy="520" r="24" fill="#ff7e48"/>
+    <circle cx="418" cy="498" r="26" fill="#fff0b6"/>
+    <circle cx="462" cy="536" r="27" fill="#ff7e48"/>
+    <circle cx="512" cy="557" r="26" fill="#fff0b6"/>
+    <circle cx="1072" cy="532" r="24" fill="#ff7e48"/>
+    <circle cx="1180" cy="582" r="22" fill="#ff7e48"/>
+  </g>
+</g>
+
+<!-- signboards to make it feel like a drinking district -->
+<g filter="url(#shadow)">
+  <rect x="296" y="690" width="88" height="156" fill="#232124"/>
+  <rect x="306" y="704" width="68" height="40" fill="#333033"/>
+  <rect x="307" y="754" width="68" height="58" fill="#eb9532"/>
+  <circle cx="340" cy="731" r="10" fill="#f6e1a1"/>
+  <rect x="322" y="768" width="38" height="6" rx="3" fill="#f8de9d"/>
+  <rect x="318" y="784" width="48" height="6" rx="3" fill="#f8de9d"/>
+  <rect x="317" y="798" width="44" height="6" rx="3" fill="#f8de9d"/>
+
+  <rect x="1038" y="688" width="88" height="156" fill="#232124" transform="rotate(4 1038 688)"/>
+  <rect x="1048" y="702" width="68" height="40" fill="#333033" transform="rotate(4 1048 702)"/>
+  <rect x="1049" y="752" width="68" height="58" fill="#e07d2e" transform="rotate(4 1049 752)"/>
+  <circle cx="1082" cy="730" r="10" fill="#f6e1a1"/>
+  <rect x="1062" y="768" width="40" height="6" rx="3" fill="#f8de9d" transform="rotate(4 1062 768)"/>
+  <rect x="1058" y="784" width="50" height="6" rx="3" fill="#f8de9d" transform="rotate(4 1058 784)"/>
+
+  <rect x="488" y="620" width="46" height="86" fill="#d05d21"/>
+  <rect x="535" y="642" width="36" height="64" fill="#e8d6ae"/>
+  <rect x="1038" y="614" width="44" height="90" fill="#f4f0e6"/>
+  <rect x="1090" y="632" width="38" height="72" fill="#c74e2b"/>
+</g>
+
+<!-- outdoor stools/tables -->
+<g>
+  <rect x="115" y="770" width="24" height="62" fill="#2d2827"/>
+  <rect x="148" y="770" width="24" height="62" fill="#2d2827"/>
+  <rect x="100" y="757" width="88" height="16" fill="#50362c"/>
+
+  <rect x="1186" y="760" width="24" height="68" fill="#272324"/>
+  <rect x="1222" y="760" width="24" height="68" fill="#272324"/>
+  <rect x="1172" y="747" width="90" height="16" fill="#5c3b2f"/>
+
+  <rect x="1268" y="742" width="20" height="86" fill="#252123"/>
+  <rect x="1310" y="742" width="20" height="86" fill="#252123"/>
+  <rect x="1258" y="730" width="84" height="16" fill="#4f342a"/>
+</g>
+
+<!-- plants/kegs -->
+<g>
+  <rect x="34" y="732" width="52" height="68" fill="#777979"/>
+  <circle cx="59" cy="735" r="23" fill="#3c5d36"/>
+  <circle cx="78" cy="752" r="18" fill="#52784d"/>
+  <rect x="241" y="738" width="26" height="62" fill="#b9b3a4"/>
+  <rect x="270" y="738" width="26" height="62" fill="#b9b3a4"/>
+  <rect x="1126" y="734" width="44" height="64" fill="#5b6761"/>
+  <circle cx="1145" cy="732" r="22" fill="#44653d"/>
+  <circle cx="1164" cy="746" r="17" fill="#5a7c50"/>
+</g>
+
+<!-- bright storefront windows -->
+<g opacity=".95">
+  <rect x="61" y="502" width="142" height="86" fill="url(#windowGlow)" opacity=".32"/>
+  <rect x="1000" y="566" width="98" height="76" fill="#fff2d8"/>
+  <rect x="1313" y="496" width="144" height="114" fill="#ffb047" opacity=".18"/>
+  <rect x="1292" y="575" width="120" height="48" fill="#fff1cf" opacity=".1"/>
+</g>
+
+<!-- dense sign cluster farther back -->
+<g>
+  <rect x="622" y="296" width="26" height="100" fill="url(#signYellow)"/>
+  <rect x="660" y="338" width="22" height="82" fill="url(#signPink)"/>
+  <rect x="708" y="372" width="20" height="70" fill="url(#signBlue)"/>
+  <rect x="872" y="337" width="23" height="86" fill="url(#signYellow)"/>
+  <rect x="920" y="358" width="20" height="74" fill="url(#signPink)"/>
+  <rect x="965" y="387" width="18" height="62" fill="url(#signBlue)"/>
+</g>
+
+<!-- ambient warm haze -->
+<ellipse cx="1186" cy="680" rx="136" ry="68" fill="#ff9a2f" opacity=".15" filter="url(#glowSoft)"/>
+<ellipse cx="320" cy="665" rx="120" ry="72" fill="#ff6732" opacity=".14" filter="url(#glowSoft)"/>
+<ellipse cx="784" cy="472" rx="170" ry="98" fill="#fff2b1" opacity=".09" filter="url(#glowSoft)"/>
+
+<!-- no people -->
+<rect width="1600" height="900" fill="#f69d1f" opacity=".04"/>
+<rect width="1600" height="900" fill="none" stroke="#000" stroke-opacity=".22" stroke-width="52"/>
+</svg>
