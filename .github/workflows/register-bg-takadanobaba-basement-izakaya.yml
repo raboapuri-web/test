@@ -1,0 +1,61 @@
+name: Register Takadanobaba Basement Izakaya Asset
+
+on:
+  push:
+    paths:
+      - '.github/workflows/register-bg-takadanobaba-basement-izakaya.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  register:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Register asset in master JSON
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          path = Path('public/assets/asset-registry.json')
+          data = json.loads(path.read_text(encoding='utf-8'))
+          asset_id = 'bg_takadanobaba_basement_izakaya'
+          if not any(a.get('id') == asset_id for a in data.get('assets', [])):
+              data['assets'].append({
+                  'id': asset_id,
+                  'type': 'background',
+                  'family': 'takadanobaba_basement_izakaya',
+                  'variant': 'cheap_old_wood_interior',
+                  'path': 'assets/backgrounds/BG_takadanobaba_basement_izakaya.svg',
+                  'location': ['Tokyo','Shinjuku','Takadanobaba','basement','izakaya','interior'],
+                  'timeOfDay': ['evening','night','late_night'],
+                  'sceneTypes': ['drinking','after_work','friends','casual_meal','nightlife','conversation','ordinary_life'],
+                  'mood': ['cheap','old','warm','casual','lived_in','nostalgic','noisy'],
+                  'narrativeUse': [
+                      '高田馬場の安めの地下居酒屋として使う',
+                      '会社帰りの飲み会や友人との会話シーンに使う',
+                      '古い木造内装と暖色照明で庶民的な夜の雰囲気を出す'
+                  ],
+                  'visualKeywords': ['Takadanobaba','basement izakaya','wood counter','old interior','menu strips','warm lights','wood floor'],
+                  'avoidWhen': ['luxury restaurant','hotel','daytime exterior','modern upscale bar'],
+                  'shot': {
+                      'type': 'interior',
+                      'framing': 'wide',
+                      'recommendedMotion': ['slowPushIn','slowPan','subtleParallax']
+                  }
+              })
+              path.write_text(json.dumps(data, ensure_ascii=False, separators=(',', ':')), encoding='utf-8')
+          PY
+      - name: Commit registry update
+        run: |
+          if git diff --quiet -- public/assets/asset-registry.json; then
+            echo 'Registry already up to date.'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add public/assets/asset-registry.json
+          git commit -m 'Register Takadanobaba basement izakaya asset'
+          git push
