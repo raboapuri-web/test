@@ -1,0 +1,61 @@
+name: Register Yokohama Hotel Wedding Reception Asset
+
+on:
+  push:
+    paths:
+      - '.github/workflows/register-bg-yokohama-hotel-wedding-reception.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  register:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Register asset in master JSON
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          path = Path('public/assets/asset-registry.json')
+          data = json.loads(path.read_text(encoding='utf-8'))
+          asset_id = 'bg_yokohama_hotel_wedding_reception'
+          if not any(a.get('id') == asset_id for a in data.get('assets', [])):
+              data['assets'].append({
+                  'id': asset_id,
+                  'type': 'background',
+                  'family': 'hotel_wedding_reception',
+                  'variant': 'projector_banquet_hall',
+                  'path': 'assets/backgrounds/BG_yokohama_hotel_wedding_reception.svg',
+                  'location': ['Yokohama','hotel','wedding_reception','banquet_hall','interior'],
+                  'timeOfDay': ['day','evening','night','any'],
+                  'sceneTypes': ['wedding','reception','banquet','speech','presentation','celebration','formal_event','hotel_event'],
+                  'mood': ['bright','formal','elegant','celebratory','clean','hotel'],
+                  'narrativeUse': [
+                      '横浜のホテルで行われる結婚式披露宴会場として使う',
+                      'プロジェクターを使う余興・スピーチ・プロフィール映像のシーンに使う',
+                      '丸テーブルと白いクロスのあるフォーマルなホテル宴会場を示す'
+                  ],
+                  'visualKeywords': ['Yokohama hotel','wedding reception','projector','projection screen','round banquet tables','white tablecloth','chandelier','hotel banquet hall'],
+                  'avoidWhen': ['casual izakaya','street','small apartment','outdoor wedding'],
+                  'shot': {
+                      'type': 'interior_event_hall',
+                      'framing': 'wide',
+                      'recommendedMotion': ['slowPushIn','slowPan','subtleParallax','projectorLightShift']
+                  }
+              })
+              path.write_text(json.dumps(data, ensure_ascii=False, separators=(',', ':')), encoding='utf-8')
+          PY
+      - name: Commit registry update
+        run: |
+          if git diff --quiet -- public/assets/asset-registry.json; then
+            echo 'Registry already up to date.'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add public/assets/asset-registry.json
+          git commit -m 'Register Yokohama hotel wedding reception asset'
+          git push
