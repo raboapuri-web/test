@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="700" viewBox="0 0 900 700">
+  <defs>
+    <linearGradient id="tan" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#D79A61"/>
+      <stop offset="100%" stop-color="#C37C47"/>
+    </linearGradient>
+    <linearGradient id="brown" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#9A643A"/>
+      <stop offset="100%" stop-color="#774626"/>
+    </linearGradient>
+    <linearGradient id="brownDark" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#855029"/>
+      <stop offset="100%" stop-color="#643719"/>
+    </linearGradient>
+    <filter id="shadow" x="-25%" y="-25%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="8" stdDeviation="7" flood-color="#000" flood-opacity="0.13"/>
+    </filter>
+  </defs>
+
+  <rect width="900" height="700" fill="none"/>
+  <ellipse cx="442" cy="570" rx="178" ry="24" fill="#000" opacity="0.08"/>
+
+  <g filter="url(#shadow)">
+    <!-- tail -->
+    <path d="M605 352 C668 292 736 324 723 402 C714 456 663 455 614 420"
+          fill="none" stroke="url(#brown)" stroke-width="24" stroke-linecap="round"/>
+
+    <!-- body silhouette closer to reference -->
+    <path d="M301 360
+             C329 329 382 313 446 315
+             C516 317 573 336 610 370
+             C642 399 655 442 647 477
+             C636 522 591 547 513 550
+             L401 550
+             C336 548 290 531 268 497
+             C243 459 250 409 301 360 Z"
+          fill="url(#brown)"/>
+
+    <!-- body patches -->
+    <ellipse cx="350" cy="432" rx="72" ry="108" fill="url(#tan)"/>
+    <ellipse cx="454" cy="432" rx="98" ry="120" fill="url(#brownDark)" opacity="0.75"/>
+    <path d="M332 336 C375 319 430 320 478 338" fill="none" stroke="#BA7D48" stroke-width="10" opacity="0.25" stroke-linecap="round"/>
+
+    <!-- head -->
+    <circle cx="260" cy="345" r="92" fill="url(#tan)"/>
+
+    <!-- ears -->
+    <path d="M214 286 C203 247 175 226 147 231 C150 264 165 292 191 317 Z" fill="url(#brown)"/>
+    <path d="M308 285 C319 246 347 225 375 230 C372 263 357 291 331 316 Z" fill="url(#brown)"/>
+    <path d="M214 290 C204 262 186 247 168 248 C171 272 181 292 196 307 Z" fill="#E7B5C8"/>
+    <path d="M308 289 C318 261 336 246 354 247 C351 271 341 291 326 306 Z" fill="#E7B5C8"/>
+
+    <!-- face fur but NO facial features -->
+    <ellipse cx="260" cy="352" rx="71" ry="60" fill="#E9B98B"/>
+    <path d="M208 333 C195 367 201 403 235 425 C229 394 230 358 240 327 Z" fill="#D79A61"/>
+    <path d="M312 333 C325 367 319 403 285 425 C291 394 290 358 280 327 Z" fill="#D79A61"/>
+    <ellipse cx="260" cy="388" rx="28" ry="22" fill="#F0CCAA" opacity="0.95"/>
+    <path d="M237 410 C250 420 270 421 283 410" fill="none" stroke="#B98359" stroke-width="6" stroke-linecap="round" opacity="0.85"/>
+
+    <!-- neck / chest fluff -->
+    <path d="M296 374 C327 357 361 356 386 374 C408 390 418 421 409 458 C401 492 380 517 350 528
+             C319 516 297 497 281 471 C268 448 264 426 267 404 C270 390 280 381 296 374 Z"
+          fill="url(#brownDark)"/>
+
+    <!-- legs shaped closer to reference -->
+    <g>
+      <path d="M327 449 C350 449 364 460 365 488 L366 542 C366 555 357 564 342 564 L331 564 C315 564 305 554 305 540 L305 489 C305 462 314 449 327 449 Z" fill="url(#tan)"/>
+      <path d="M416 447 C441 447 454 460 454 491 L454 543 C454 557 444 567 428 567 L416 567 C400 567 390 556 390 542 L390 492 C390 462 400 447 416 447 Z" fill="url(#brownDark)"/>
+      <path d="M542 443 C567 443 580 457 580 489 L580 540 C580 555 570 565 554 565 L543 565 C527 565 517 554 517 539 L517 489 C517 458 528 443 542 443 Z" fill="url(#tan)"/>
+      <path d="M628 441 C654 441 668 456 668 491 L668 540 C668 556 657 567 640 567 L627 567 C610 567 600 556 600 540 L600 491 C600 456 611 441 628 441 Z" fill="url(#brownDark)"/>
+
+      <ellipse cx="336" cy="570" rx="34" ry="18" fill="#C98652"/>
+      <ellipse cx="422" cy="573" rx="36" ry="18" fill="#966036"/>
+      <ellipse cx="549" cy="571" rx="34" ry="18" fill="#C98652"/>
+      <ellipse cx="640" cy="573" rx="36" ry="18" fill="#966036"/>
+    </g>
+
+    <!-- beard-like fur silhouette -->
+    <path d="M219 399 C228 425 244 439 265 442 C286 440 301 426 309 399 C300 425 293 439 283 452 C275 461 265 466 257 466 C248 466 237 460 229 450 C220 438 214 423 219 399 Z"
+          fill="#D1925F" opacity="0.9"/>
+  </g>
+</svg>
