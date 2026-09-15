@@ -1,0 +1,61 @@
+name: Register Shizuoka Suburban House Yard Day Asset
+
+on:
+  push:
+    paths:
+      - '.github/workflows/register-bg-shizuoka-suburban-house-yard-day.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  register:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Register asset in master JSON
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          path = Path('public/assets/asset-registry.json')
+          data = json.loads(path.read_text(encoding='utf-8'))
+          asset_id = 'bg_shizuoka_suburban_house_yard_day'
+          if not any(a.get('id') == asset_id for a in data.get('assets', [])):
+              data['assets'].append({
+                  'id': asset_id,
+                  'type': 'background',
+                  'family': 'shizuoka_suburban_house',
+                  'variant': 'day_white_brick_yard_deck',
+                  'path': 'assets/backgrounds/BG_shizuoka_suburban_house_yard_day.svg',
+                  'location': ['Shizuoka','suburban','residential','detached_house','yard'],
+                  'timeOfDay': ['day','morning','afternoon'],
+                  'sceneTypes': ['home','family_home','suburban_life','yard','weekend','arrival','memory','ordinary_life'],
+                  'mood': ['bright','calm','clean','domestic','comfortable','suburban'],
+                  'narrativeUse': [
+                      '静岡の郊外にある白い2階建て戸建てとして使う',
+                      '広めの芝生の庭とウッドデッキのある生活シーンに使う',
+                      '都会の集合住宅やタワマンと対比する郊外の家族的な住環境を示す'
+                  ],
+                  'visualKeywords': ['Shizuoka suburban house','white brick house','two-story detached house','wide lawn','wood deck','modern family home'],
+                  'avoidWhen': ['night','dense city center','apartment interior','commercial street'],
+                  'shot': {
+                      'type': 'exterior_residential',
+                      'framing': 'wide_front_elevation',
+                      'recommendedMotion': ['slowPushIn','slowPan','subtleParallax']
+                  }
+              })
+              path.write_text(json.dumps(data, ensure_ascii=False, separators=(',', ':')), encoding='utf-8')
+          PY
+      - name: Commit registry update
+        run: |
+          if git diff --quiet -- public/assets/asset-registry.json; then
+            echo 'Registry already up to date.'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add public/assets/asset-registry.json
+          git commit -m 'Register Shizuoka suburban house yard asset'
+          git push
