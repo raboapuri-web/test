@@ -1,0 +1,61 @@
+name: Register Sangenjaya Street Night Asset
+
+on:
+  push:
+    paths:
+      - '.github/workflows/register-bg-sangenjaya-street-night.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  register:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Register asset in master JSON
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          path = Path('public/assets/asset-registry.json')
+          data = json.loads(path.read_text(encoding='utf-8'))
+          asset_id = 'bg_sangenjaya_street_night'
+          if not any(a.get('id') == asset_id for a in data.get('assets', [])):
+              data['assets'].append({
+                  'id': asset_id,
+                  'type': 'background',
+                  'family': 'sangenjaya_drinking_street',
+                  'variant': 'night_izakaya_alley',
+                  'path': 'assets/backgrounds/BG_sangenjaya_street_night.svg',
+                  'location': ['Tokyo','Setagaya','Sangenjaya','drinking_district','izakaya_alley'],
+                  'timeOfDay': ['night','late_night'],
+                  'sceneTypes': ['nightlife','izakaya_street','bar_hopping','after_work','friends','date','urban_transition','street_establishing'],
+                  'mood': ['lively','warm','nostalgic','gritty','urban','intimate','nocturnal'],
+                  'narrativeUse': [
+                      '三軒茶屋の飲み屋街・居酒屋が密集する夜の路地として使う',
+                      'はしご酒、友人との飲み、デート、帰宅前の街歩きシーンに使う',
+                      '提灯・のれん・立て看板・雑居店舗が密集した庶民的な夜の東京を示す'
+                  ],
+                  'visualKeywords': ['Sangenjaya','drinking street','izakaya alley','lanterns','noren','bar district','standing signs','narrow night street'],
+                  'avoidWhen': ['daytime','luxury hotel','quiet residential interior','rural landscape'],
+                  'shot': {
+                      'type': 'exterior_street',
+                      'framing': 'wide_alley_perspective',
+                      'recommendedMotion': ['slowPushIn','slowPan','subtleParallax','lightFlicker']
+                  }
+              })
+              path.write_text(json.dumps(data, ensure_ascii=False, separators=(',', ':')), encoding='utf-8')
+          PY
+      - name: Commit registry update
+        run: |
+          if git diff --quiet -- public/assets/asset-registry.json; then
+            echo 'Registry already up to date.'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add public/assets/asset-registry.json
+          git commit -m 'Register Sangenjaya street night asset'
+          git push
