@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+<defs><linearGradient id="wall" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#d7d1c8"/><stop offset="1" stop-color="#b9b0a4"/></linearGradient><linearGradient id="floor" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#9b7b58"/><stop offset="1" stop-color="#6e533d"/></linearGradient><radialGradient id="lamp"><stop stop-color="#ffe6a8" stop-opacity=".9"/><stop offset="1" stop-color="#ffe6a8" stop-opacity="0"/></radialGradient></defs>
+<rect width="1600" height="900" fill="url(#wall)"/>
+<rect y="640" width="1600" height="260" fill="url(#floor)"/>
+<rect x="1060" y="70" width="430" height="390" fill="#18222f"/><rect x="1085" y="95" width="180" height="340" fill="#2b4154"/><rect x="1285" y="95" width="180" height="340" fill="#26384a"/>
+<g fill="#f3c57a" opacity=".55"><rect x="1110" y="135" width="32" height="22"/><rect x="1190" y="210" width="40" height="27"/><rect x="1320" y="155" width="35" height="24"/><rect x="1400" y="275" width="38" height="25"/></g>
+<rect x="90" y="175" width="315" height="465" fill="#c8c1b8"/><rect x="120" y="205" width="255" height="140" fill="#dcd7cf"/>
+<rect x="470" y="420" width="250" height="220" rx="18" fill="#7e7469"/><rect x="500" y="445" width="190" height="165" fill="#1a1d20"/>
+<rect x="760" y="530" width="235" height="110" rx="18" fill="#d8d3cb"/><rect x="790" y="552" width="170" height="70" fill="#ededeb"/>
+<rect x="180" y="680" width="880" height="130" rx="34" fill="#5b6570"/><rect x="260" y="650" width="250" height="75" rx="24" fill="#737e89"/>
+<ellipse cx="820" cy="170" rx="260" ry="210" fill="url(#lamp)"/><circle cx="820" cy="122" r="34" fill="#f6e8c1"/><line x1="820" y1="0" x2="820" y2="90" stroke="#4e4b47" stroke-width="7"/>
+<rect x="1220" y="585" width="120" height="55" rx="8" fill="#ece7de"/><text x="1280" y="620" text-anchor="middle" font-family="sans-serif" font-size="24" fill="#5a544d">冷蔵庫</text>
+</svg>
