@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+<defs><linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#101621"/><stop offset="1" stop-color="#27313a"/></linearGradient><linearGradient id="road" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#3b4045"/><stop offset="1" stop-color="#171a1d"/></linearGradient></defs>
+<rect width="1600" height="900" fill="url(#sky)"/>
+<g fill="#28313a"><rect x="0" y="120" width="270" height="420"/><rect x="300" y="60" width="320" height="480"/><rect x="650" y="150" width="250" height="390"/><rect x="930" y="90" width="300" height="450"/><rect x="1260" y="130" width="340" height="410"/></g>
+<g fill="#ffd27a" opacity=".65"><rect x="80" y="190" width="35" height="25"/><rect x="180" y="300" width="38" height="26"/><rect x="360" y="130" width="42" height="28"/><rect x="520" y="250" width="36" height="24"/><rect x="1000" y="180" width="42" height="27"/><rect x="1140" y="315" width="35" height="24"/><rect x="1360" y="215" width="40" height="26"/></g>
+<rect y="540" width="1600" height="360" fill="url(#road)"/>
+<ellipse cx="800" cy="650" rx="520" ry="190" fill="#51565b" opacity=".45"/><ellipse cx="800" cy="650" rx="360" ry="120" fill="#23282c"/>
+<path d="M0 730 C280 650 500 680 760 650 C1030 620 1290 670 1600 600" fill="none" stroke="#ddd7bd" stroke-width="10" stroke-dasharray="45 35" opacity=".7"/>
+<rect x="610" y="420" width="380" height="92" rx="16" fill="#d9dad8"/><text x="800" y="478" text-anchor="middle" font-family="sans-serif" font-size="34" fill="#29313a">EBISU WEST</text>
+</svg>
